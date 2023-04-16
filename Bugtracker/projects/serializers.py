@@ -1,20 +1,20 @@
-from rest_framework import serializers
-from .models import User, Project, Ticket
+# from rest_framework import serializers
+# from .models import User, Project, Ticket
 
 
-class ProjectSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Project
-        fields = ['title','description','owner','lead_developer']
+# class ProjectSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         model = Project
+#         fields = ['title','description','owner','lead_developer']
 
 
-class TicketSerializer(serializer.HyperlinkedModelSerializer):
-    class Meta:
-        models = Ticket
-        fields = ['ticket_id','title','description','status','priority','category']
+# class TicketSerializer(serializer.HyperlinkedModelSerializer):
+#     class Meta:
+#         models = Ticket
+#         fields = ['ticket_id','title','description','status','priority','category']
 
 
-'''
+# '''
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response

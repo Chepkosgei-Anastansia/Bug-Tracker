@@ -26,7 +26,7 @@ class User(models.Model):
 class Project(models.Model):
     
     title = models.CharField(max_length=50)
-    # description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
     # project_manager_id = models.ForeignKey(User, on_delete= models.CASCADE)
     lead_developer_id = models.ForeignKey(User, on_delete= models.CASCADE)
     owner = models.CharField(max_length=50)
