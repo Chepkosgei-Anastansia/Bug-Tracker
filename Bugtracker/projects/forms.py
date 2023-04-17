@@ -40,7 +40,7 @@ class ProjectForm(forms.Form):
 class UserForm(forms.Form):
     first_name = forms.CharField(label='First name', max_length=100)
     last_name = forms.CharField(label='Last Name', max_length=100)
-    email = forms.emailField(label='Email Address', max_length=100)
+    email = forms.EmailField(label='Email Address', max_length=100)
     role = forms.CharField(label='User Role', widget=forms.Select(choices= ROLE))
 
 class TicketForm(forms.Form):

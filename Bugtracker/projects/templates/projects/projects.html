@@ -1,3 +1,10 @@
 <html>
+
+
+{% for project in projects %}
+<li> <a href = "{% url 'project' project.id %}">{{ project.title}} </a> </li>
+
+
+{% endfor %}
     
 </html>

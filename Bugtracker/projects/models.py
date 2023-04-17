@@ -26,7 +26,7 @@ class User(models.Model):
 class Project(models.Model):
     
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, null=True)
     # project_manager_id = models.ForeignKey(User, on_delete= models.CASCADE)
     lead_developer_id = models.ForeignKey(User, on_delete= models.CASCADE)
     owner = models.CharField(max_length=50)
@@ -48,7 +48,7 @@ class Ticket (models.Model):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE)
-    lead_developer_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     priority = models.CharField(max_length= 30, choices=PRIORITY_OPTIONS)
     status = models.CharField(max_length = 30, choices=STATUS_OPTIONS)
     category = models.CharField(max_length=50)

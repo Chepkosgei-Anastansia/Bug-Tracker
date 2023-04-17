@@ -1,10 +1,10 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import ProjectCreate, ProjectDelete, ProjectDetail, ProjectList, ProjectUpdate
+from .views import ProjectCreate, ProjectDelete, ProjectDetail, ProjectList, ProjectUpdate, TicketCreate, TicketDetail,TicketDelete, TicketUpdate, TicketList
   
 urlpatterns = [
-    path('', ProjectDetail.as_view(), name='projects'),
+    path('', ProjectList.as_view(), name='projects'),
     path('project/<str:pk>', ProjectDetail.as_view(), name = 'project'),
     path('project-create/', ProjectCreate.as_view(), name='project-create'),
     path('project-update/<str:pk>/', ProjectUpdate.as_view(), name='project-update'),

@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from .models import Ticket,Project
-from .serializers import ProjectSerializer, TicketSerializer
+from django.urls import reverse_lazy
 
 from django.views.generic.list import ListView 
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from .forms import ProjectForm, TicketForm
 
 
 class ProjectList(ListView):
@@ -19,11 +23,15 @@ class ProjectCreate(CreateView):
     model = Project
     fields = ['title','description','lead_developer_id', 'owner']
     success_url = reverse_lazy('projects')  
+    template_name = 'base/add_project.html'
+    form_class = ProjectForm
 
 class ProjectUpdate(UpdateView):
     model = Project 
     fields = ['title','description','lead_developer_id', 'owner']
     success_url = reverse_lazy('projects')
+    template_name = 'base/update_project.html'
+    form_class = ProjectForm
 
 class ProjectDelete(DeleteView):
     model = Project
@@ -45,11 +53,15 @@ class TicketCreate(CreateView):
     model = Ticket
     fields = ['title','description','project_id','lead_developer_id', 'priority', 'status','category']
     success_url = reverse_lazy('tickets')  
+    template_name = 'base/add_ticket.html'
+    form_class = TicketForm
 
 class TicketUpdate(UpdateView):
     model = Ticket 
     fields = ['title','description','lead_developer_id', 'priority','status','category']
     success_url = reverse_lazy('tickets')
+    template_name = 'base/update_ticket.html'
+    form_class = TicketForm
 
 class TicketDelete(DeleteView):
     model = Ticket
